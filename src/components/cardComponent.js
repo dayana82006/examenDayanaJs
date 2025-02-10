@@ -1,85 +1,85 @@
-
-const API_URL = 'http://localhost:3000/superh'
 class CardComponent extends HTMLElement {
     constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
+      super();
+      this.attachShadow({ mode: "open" });
+  
+     
+      this.shadowRoot.innerHTML = `
+        <style>
+          .card {text-align: center;
+            width: auto;
+            background-color: #081338 !important;
+            margin: 5px;
+            color: rgb(241, 216, 183) !important;
+            box-shadow: 2px 2px 5px 2px rgb(12, 11, 11);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #081338 !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            margin: 8px;
+            text-align: center;
+          }
+          .card h5 {
+            font-size: 1.2rem;
+            margin: 8px 0;
+          }
+          .card p {
+            font-size: 1rem;
+            margin: 8px 0;
+          }
+          .card button {
+            background-color: #9892CF;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 4px;
+          }
+          .card button:hover {
+            background-color: #0056b3;
+          }
+        </style>
+        <div class="card">
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
+          <button class="edit-btn">Editar</button>
+          <button class="delete-btn">Eliminar</button>
+        </div>
+      `;
     }
-
+  
+    static get observedAttributes() {
+      return ["data-id", "data-name", "data-origen"];
+    }
+  
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (name === "data-name") {
+        this.shadowRoot.querySelector(".card-title").textContent = newValue;
+      }
+      if (name === "data-origen") {
+        this.shadowRoot.querySelector(".card-text").textContent = newValue;
+      }
+    }
+  
     connectedCallback() {
-        this.loadCards();
-        this.render();
-    }
-
- 
-
-    render() {
-        const id = this.getAttribute("data-id");
+      const id = this.getAttribute("data-id");
+  
+      this.shadowRoot.querySelector(".delete-btn").addEventListener("click", () => {
+        this.dispatchEvent(new CustomEvent("delete-card", { detail: { id }, bubbles: true }));
+      });
+  
+      this.shadowRoot.querySelector(".edit-btn").addEventListener("click", () => {
         const name = this.getAttribute("data-name");
         const origen = this.getAttribute("data-origen");
-        const poderes = this.getAttribute("data-poderes");
-        const habilidades = this.getAttribute("data-habilidades");
-        const historia = this.getAttribute("data-historia");
-        const imagen = this.getAttribute("data-imagen");
-        const apariciones = this.getAttribute("data-apariciones");
-
-        this.shadowRoot.innerHTML = `
-        <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1c2030 !important;
-            margin: 0;
-            padding: 0;
-            box-sizing: content-box;
-          }
-         .card-custom{
-          text-align: center;
-          background-color: #081338 !important;
-          margin: 5px;
-          color: rgb(241, 216, 183) !important;
-          box-shadow: 2px 2px 5px 2px rgb(12, 11, 11);
-         }
-        
-         .btn-custom{
-          background-color: #555558a1 !important;
-          color: rgb(255, 136, 24) !important;
-         }
-      </style>
-            <div class="container-md"> 
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-custom" style="width: 20rem;">
-                            <img src="${imagen}" class="card-img-top" alt="${name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${name}</h5>
-                                <p class="card-text">${historia}</p>
-                                <p class="card-text">Origen: ${origen}</p>
-                                <p class="card-text">Poderes: ${poderes}</p>
-                                <p class="card-text">Habilidades: ${habilidades}</p>
-                                <p class="card-text">Apariciones: ${apariciones}</p>
-                            </div>
-                            <div>
-                                <button class="edit">Editar</button>
-                                <button class="delete">Eliminar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        this.shadowRoot.querySelector(".edit").addEventListener("click", () => {
-            this.dispatchEvent(
-                new CustomEvent("edit-item", { detail: { id, name, historia } })
-            );
-        });
-
-        this.shadowRoot.querySelector(".delete").addEventListener("click", () => {
-            this.dispatchEvent(new CustomEvent("delete-item", { detail: { id } }));
-        });
+        this.dispatchEvent(
+          new CustomEvent("edit-card", { detail: { id, name, origen }, bubbles: true })
+        );
+      });
     }
-
-
-}
-
-customElements.define("card-component", CardComponent);
+  }
+  
+  customElements.define("card-component", CardComponent);
+  

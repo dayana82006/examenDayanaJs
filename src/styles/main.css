@@ -2,22 +2,64 @@ body {
     font-family: Arial, sans-serif;
     background-color: #1c2030 !important;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     box-sizing: content-box;
   }
  .card-custom{
   text-align: center;
+  width: auto;
   background-color: #081338 !important;
   margin: 5px;
   color: rgb(241, 216, 183) !important;
   box-shadow: 2px 2px 5px 2px rgb(12, 11, 11);
  }
-
- .btn-custom{
-  background-color: #555558a1 !important;
-  color: rgb(255, 136, 24) !important;
+ .card-custom img{
+    width: 100%;
+    height: 250px;
  }
 
+ .btn-custom{
+  background-color: #6363b6a1 !important;
+  color: rgb(255, 136, 24) !important;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
 
+
+ }
+
+ .card-custom {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card-custom:hover {
+  transform: scale(1.05);
+}
+
+.btn-custom:hover {
+  background-color: #535558 !important;
+  color: rgb(206, 206, 206) !important;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.container-md {
+  padding-top: 20px;
+}
   
   

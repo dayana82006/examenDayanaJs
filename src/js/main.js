@@ -1,38 +1,73 @@
-import { getItems, createItem, updateItem, deleteItem } from "./api.js";
-import "../components/cardComponent.js";
+import { getcards, createcard, updatecard, deletecard } from "./api.js";
+import "../components/cardComponent.js"; 
+const cardList = document.getElementById("card-list"); 
+const form = document.getElementById("card-form"); 
+const inputId = document.getElementById("card-id"); 
+const inputName = document.getElementById("card-name"); 
+const inputOrigen = document.getElementById("card-origen"); 
+// Cargar datos al inicio
+document.addEventListener("DOMContentLoaded", loadcards);
 
-const card= document.getElementById("card");
-
-
-// Cargar ítems al inicio
-document.addEventListener("DOMContentLoaded", loadItems);
-
-async function loadItems() {
-  itemList.innerHTML = ""; // Limpiar lista
-  const items = await getItems();
-  items.forEach((item) => addItemToDOM(item));
+async function loadcards() {
+  cardList.innerHTML = ""; 
+  try {
+    const cards = await getcards();
+    cards.forEach((card) => addcardToDOM(card)); 
+  } catch (error) {
+    console.error("Error cargando las cards:", error);
+  }
 }
 
-// Agregar ítem al DOM
-function addItemToDOM(superh) {
-  const itemElement = document.createElement("item-component");
-  itemElement.setAttribute("data-id", superh.id);
-  itemElement.setAttribute("data-name", superh.name);
-  itemElement.setAttribute("data-origen", superh.origen)
+function addcardToDOM(card) {
+  const cardElement = document.createElement("card-component");
+  cardElement.setAttribute("data-id", card.id);
+  cardElement.setAttribute("data-name", card.name);
+  cardElement.setAttribute("data-historia", card.historia);
+  cardElement.setAttribute("data-origen", card.origen);
 
-  itemElement.addEventListener("edit-item", (e) => {
-    const { id, name, description } = e.detail;
-    inputId.value = id;
-    inputName.value = name;
-    inputDescription.value = description;
+  // Evento para editar el card
+  cardElement.addEventListener("edit-card", (e) => {
+    const { id, name, origen } = e.detail;
+    inputId.value = id; 
+    inputName.value = name; 
+    inputOrigen.value = origen; 
+    inputHistoria.value = historia; 
   });
 
-  itemElement.addEventListener("delete-item", async (e) => {
+  cardElement.addEventListener("delete-card", async (e) => {
     const { id } = e.detail;
-    await deleteItem(id);
-    loadItems();
+    try {
+      await deletecard(id); 
+      loadcards();
+    } catch (error) {
+      console.error("Error eliminando el card:", error);
+    }
   });
 
-  itemList.appendChild(itemElement);
+  cardList.appendChild(cardElement); 
 }
 
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const card = {
+    name: inputName.value,
+    origen: inputOrigen.value,
+    historia: inputHistoria.value,
+  };
+
+  try {
+    if (inputId.value) {
+     
+      await updatecard(inputId.value, card);
+    } else {
+      
+      await createcard(card);
+    }
+
+    form.reset(); 
+    loadcards(); 
+  } catch (error) {
+    console.error("Error guardando el card:", error);
+  }
+});
