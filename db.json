@@ -1,0 +1,122 @@
+{
+    "superh":[
+        {
+            "id": "1",
+            "name": "Mujer Maravilla",
+            "origen": " Isla de las Amazonas, Temiscira",
+            "poderes": "Vuelo, Lazo mágico, Superfuerza",
+            "habilidades" : "Resistencia, Velocidad, Factor curativo  ",
+            "historia" : "La historia de la Mujer Maravilla en DC Comics se centra en la princesa Diana de Temiscira, una guerrera amazónica que lucha contra el mal.",
+            "imagen": "src/img/mujer-maravilla.jpg",
+            "apariciones": 7
+            
+
+        },
+        {
+            "id": "2",
+            "name": "Superman",
+            "origen": "Krypton",
+            "poderes": "Vuelo, Superfuerza, Visión X",
+            "habilidades" : "Resistencia, Velocidad, Factor curativo  ",
+            "historia" : "La historia de Superman en DC Comics se centra en el origen del personaje, su vida en la Tierra y su lucha contra el crimen. Superman es un superhéroe que representa la verdad, la justicia y la esperanza.",
+            "imagen":"src/img/superman.jpg",
+            "apariciones": 10
+        },
+        {
+            "id": "3",  
+            "name": "Batman",
+            "origen": "Gotham City",
+            "poderes": "No aplica",
+            "habilidades" : "Tirador experto, Espionaje, Maestro Artes Marciales",
+            "historia" : "La historia de Batman es la de Bruce Wayne, un millonario que se convierte en un vigilante nocturno para combatir el crimen en Ciudad Gótica. Batman se inspira en el detective Sherlock Holmes y en el Zorro",
+            "imagen": "src/img/batman.jpg",
+            "apariciones": 8
+        },
+        {
+            "id": "4",
+            "name": "Iron Man",
+            "origen": "Nueva York",
+            "poderes": "Super Fuerza, Durabilidad, Misiles",
+            "habilidades" : "Genio, Resistencia, Velocidad Sobre humana ",
+            "historia" : "La historia de Iron Man en Marvel se centra en Anthony Edward Stark, un multimillonario inventor que se convierte en el superhéroe Iron Man.",
+            "imagen": "src/img/ironMan.jpg",
+            "apariciones": 9
+        },
+        {
+            "id": "5",
+            "name": "Spiderman",
+            "origen": "Nueva York",
+            "poderes": "Fuerza, Telaraña, Resistencia",
+            "habilidades" : "Sentido arácnido, Agilidad, Fisologia de la araña",
+            "historia" : "La historia de Spider-Man en Marvel comienza con Peter Parker, un adolescente que es mordido por una araña radiactiva y adquiere superpoderes. Peter se convierte en Spider-Man y utiliza sus habilidades para combatir el crimen y proteger a los demás. ",
+            "imagen": "src/img/spiderman.jpg",
+            "apariciones": 6
+
+        },
+        {
+            "id": "6",
+            "name": "Capitán América",
+            "origen": "Nueva York",
+            "poderes": "Fuerza, Resistencia, Operador militar avanzado",
+            "habilidades" : "Resistencia a la hipnosis, Velocidad, aguante",
+            "historia" : "El Capitán América es un superhéroe de Marvel Comics y del Universo Cinematográfico de Marvel (MCU). Su nombre real es Steven Rogers. ",
+            "imagen": "src/img/capitanAmerica.jpeg",
+            "apariciones": 7
+
+        }
+    ],
+
+    "villanos":[
+        {
+            "id" : "1",
+            "name" : "Dosctor Doom",
+            "origen" : "Latveria",
+            "poderes" : "Magia, Vuelo, Fuerza",
+            "habilidades" : "Tecnopata, Durabilidad, Inteligencia",
+            "historia" : "Victor von Doom ha tratado de dominar el mundo en muchas ocasiones. Ha coleccionado una serie de artefactos mágicos para mejorar sus habilidades. Ha tenido alianzas con Kang que le han conectado con el multiverso.",
+            "imagen":"src/img/doctordoom.jpeg",
+            "apariciones": 8
+        
+        },
+        {
+            "id": "1",
+            "name": "Doctor Doom",
+            "origen": "Latveria",
+            "poderes": "Magia, Vuelo, Fuerza",
+            "habilidades": "Tecnopata, Durabilidad, Inteligencia",
+            "historia": "Victor von Doom ha tratado de dominar el mundo en muchas ocasiones. Ha coleccionado una serie de artefactos mágicos para mejorar sus habilidades. Ha tenido alianzas con Kang que le han conectado con el multiverso.",
+            "imagen": "src/img/doctordoom.jpeg",
+            "apariciones": 8
+        },
+        {
+            "id": "2",
+            "name": "Joker",
+            "origen": "Gotham City",
+            "poderes": "Manipulación, Resistencia al dolor, Inteligencia táctica",
+            "habilidades": "Estrategia, Química, Engaño",
+            "historia": "El Joker es el archienemigo de Batman, conocido por su caos y locura. Su origen exacto es un misterio, pero se cree que fue un químico que cayó en un tanque de ácido, lo que lo dejó con su apariencia pálida y sonrisa permanente. Es un maestro de la manipulación y el crimen organizado.",
+            "imagen": "src/img/joker.jpeg",
+            "apariciones": 12
+        },
+        {
+            "id": "3",
+            "name": "Thanos",
+            "origen": "Titán",
+            "poderes": "Fuerza sobrehumana, Durabilidad, Manipulación de energía cósmica",
+            "habilidades": "Estrategia, Liderazgo, Conocimiento de tecnología avanzada",
+            "historia": "Thanos es un titán obsesionado con el equilibrio del universo. Buscó las Gemas del Infinito para eliminar la mitad de la vida en el universo y así lograr su objetivo. Es un ser inmortal con un intelecto y poder superiores, capaz de desafiar a los seres más poderosos del cosmos.",
+            "imagen": "src/img/thanos.jpeg",
+            "apariciones": 10
+        },
+        {
+            "id": "4",
+            "name": "Darkseid",
+            "origen": "Apokolips",
+            "poderes": "Fuerza divina, Rayos Omega, Telepatía",
+            "habilidades": "Liderazgo, Estrategia, Manipulación de masas",
+            "historia": "Darkseid es el gobernante tiránico de Apokolips, obsesionado con encontrar la Ecuación Anti-Vida para controlar el libre albedrío de todos los seres vivos. Es uno de los villanos más poderosos del universo DC, con habilidades divinas y un ejército de Parademonios a su disposición.",
+            "imagen": "src/img/darkseid.jpeg",
+            "apariciones": 7
+        }
+    ]
+}
